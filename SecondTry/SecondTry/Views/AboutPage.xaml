@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecondTry.Views.AboutPage"
+             xmlns:vm="clr-namespace:SecondTry.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Label x:Name="lbl" Text="{Binding Value, Source={x:Reference sl}, StringFormat='Slider show value: {0}'}"
+               TextColor="Red" FontSize="Title" FontAttributes="Bold,Italic"></Label>
+        <Entry Text="rustam" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Entry>
+        <Slider x:Name="sl" Minimum="0" Maximum="100" Value="30" 
+                MinimumTrackColor="LightCoral"
+                MaximumTrackColor="LightCoral" IsEnabled="{Binding IsToggled, Source={x:Reference sw}}"></Slider>
+
+        <StackLayout Orientation="Horizontal" Padding="10">
+            <Label Text="Is active?" HorizontalOptions="Start"></Label>
+            <Label Text="Another text" HorizontalOptions="CenterAndExpand"></Label>
+            <Switch x:Name="sw" IsToggled="True" HorizontalOptions="End"></Switch>
+        </StackLayout>
+
+        <TimePicker Time="4:15:26" HorizontalOptions="Center"></TimePicker>
+        <DatePicker HorizontalOptions="Start"></DatePicker>
+        
+    </StackLayout>
+  
+
+</ContentPage>
